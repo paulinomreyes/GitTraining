@@ -1,0 +1,12 @@
+yum install docker etcd kubernetes 
+ 
+for SERVICE in docker etcd kube-apiserver kube-controller-manager kube-scheduler kube-proxy kubelet; do 
+    systemctl restart $SERVICE
+    systemctl enable $SERVICE
+done
+ 
+yum install cockpit cockpit-kubernetes
+systemctl enable cockpit.socket
+systemctl start cockpit.socket
+ 
+firewall-cmd --permanent --zone=public --add-port=9090/tcp && firewall-cmd --reload
