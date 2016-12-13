@@ -5,10 +5,14 @@
      yum: pkg=docker state=installed update_cache=true
 
    - name: Install etcd
-     yum: pkg:etcd state=installed update_cache=true
+     yum: pkg=etcd state=installed update_cache=true
 
    - name: Install kubernetes
      yum: pkg=kubernetes state=installed update_cache=true
 
-   
+   - name: Install cockpit
+     yum: pkg=cockpit state=installed update_cache=true
+
+   - name: Install cockpit-kubernetes
+     yum: pkg=cockpit-kubernetes state=installed update_cache=true   
 
