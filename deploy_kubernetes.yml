@@ -1,0 +1,14 @@
+---
+- hosts: web2 
+  tasks:
+   - name: Install docker 
+     yum: pkg=docker state=installed update_cache=true
+
+   - name: Install etcd
+     yum: pkg:etcd state=installed update_cache=true
+
+   - name: Install kubernetes
+     yum: pkg=kubernetes state=installed update_cache=true
+
+   
+
