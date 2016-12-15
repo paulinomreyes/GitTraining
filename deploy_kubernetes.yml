@@ -1,8 +1,6 @@
----
 - hosts: web2 
   tasks:
    - name: Install  Packages
-     yum: pkg=docker state=installed update_cache=true
      yum: pkg={{ item.packagename }} state=installed update_cache=true
      with_items:
        - { packagename: 'docker' }
