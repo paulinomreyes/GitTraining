@@ -1,18 +1,14 @@
 ---
 - hosts: web2 
   tasks:
-   - name: Install docker 
+   - name: Install  Packages
      yum: pkg=docker state=installed update_cache=true
+     yum: pkg={{ item.packagename }} state=installed update_cache=true
+     with_items:
+       - { packagename: 'docker' }
+       - { packagename: 'etcd' }
+       - { packagename: 'kubernetes' }
+       - { packagename: 'cockpit' }
+       - { packagename: 'cockpit-kubernetes' }
 
-   - name: Install etcd
-     yum: pkg=etcd state=installed update_cache=true
-
-   - name: Install kubernetes
-     yum: pkg=kubernetes state=installed update_cache=true
-
-   - name: Install cockpit
-     yum: pkg=cockpit state=installed update_cache=true
-
-   - name: Install cockpit-kubernetes
-     yum: pkg=cockpit-kubernetes state=installed update_cache=true   
 
