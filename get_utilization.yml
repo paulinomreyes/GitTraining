@@ -2,6 +2,13 @@
 - hosts: web
   tasks:
 
+    - name: Deploy SAR
+      yum: pkg=sysstat state=installed update_cache=true
+      when:
+      - ansible_distribution == "CentOS"    
+
+    
+
     - name: Average Memory
       command: sar -r -q -n DEV
       register: memory
