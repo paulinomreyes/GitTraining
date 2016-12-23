@@ -1,4 +1,4 @@
-- hosts: web2 
+- hosts: web
   tasks:
    - name: Install  Packages
      yum: pkg={{ item.packagename }} state=installed update_cache=true
@@ -8,5 +8,12 @@
        - { packagename: 'kubernetes' }
        - { packagename: 'cockpit' }
        - { packagename: 'cockpit-kubernetes' }
+    
+
+   - name: Restart cockpit 
+     service: name=cockpit state=restarted enabled=yes
+
+   - name: Restart cockpit-kubernetes
+     service: name=cockpit-kubernetes state restarted enabled=yes
 
 
