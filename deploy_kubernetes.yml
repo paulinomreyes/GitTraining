@@ -8,12 +8,14 @@
        - { packagename: 'kubernetes' }
        - { packagename: 'cockpit' }
        - { packagename: 'cockpit-kubernetes' }
-     notify:
-     - restart service
-  handlers:
 
-   - name: restart service 
-     service: name=cockpit state=restarted 
-     service: name=cockpit-kubernetes state=restarted
-
+  tasks:
+   -name Restart Services
+    service: name={{ item.name }} state=restarted
+    with_items:
+      - { name: 'docker' }
+      - { name: 'etcd' }
+      - { name: 'kubernetes' }
+      - { name: 'cockpit' }
+      - { name: 'cockpit-kubernetes' }
 
