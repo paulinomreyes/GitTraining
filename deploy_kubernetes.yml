@@ -10,7 +10,7 @@
        - { packagename: 'cockpit-kubernetes' }
 
   tasks:
-   -name Restart Services
+   -name: Restart Services
     service: name={{ item.packagename }} state=restarted
     with_items:
       - { packagename: 'docker' }
