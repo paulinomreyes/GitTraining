@@ -11,11 +11,11 @@
 
   tasks:
    -name Restart Services
-    service: name={{ item.name }} state=restarted
+    service: name={{ item.packagename }} state=restarted
     with_items:
-      - { name: 'docker' }
-      - { name: 'etcd' }
-      - { name: 'kubernetes' }
-      - { name: 'cockpit' }
-      - { name: 'cockpit-kubernetes' }
+      - { packagename: 'docker' }
+      - { packagename: 'etcd' }
+      - { packagename: 'kubernetes' }
+      - { packagename: 'cockpit' }
+      - { packagename: 'cockpit-kubernetes' }
 
