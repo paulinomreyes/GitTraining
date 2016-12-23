@@ -10,18 +10,18 @@
        - { packagename: 'cockpit-kubernetes' }
 
   tasks:
-   -name: Restart Services
-    service: name=docker state=restarted
+   - name: Restart Services
+     service: name=docker state=restarted
 
-   -name: Restart
-    service: name=etcd state=restarted
+   - name: Restart
+     service: name=etcd state=restarted
    
-   -name: Restart
-    service: name=kubernetes state=restarted
+   - name: Restart
+     service: name=kubernetes state=restarted
 
-   -name: Restart
-    service: name=cockpit state=restarted
+   - name: Restart
+     service: name=cockpit state=restarted
 
-   -name: Restart
-    service: name=cockpit-kubernets state=restarted
+   - name: Restart
+     service: name=cockpit-kubernets state=restarted
 
