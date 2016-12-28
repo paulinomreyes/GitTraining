@@ -9,22 +9,4 @@
        - { packagename: 'cockpit' }
        - { packagename: 'cockpit-kubernetes' }
 
-  tasks:
-   - name: Restart Services
-     service: name=docker state=restarted
-
-   - name: Restart
-     service: name=etcd state=restarted
-   
-   - name: Restart
-     service: name=kube-apiserver state=restarted
-
-   - name: Restart
-     service: name=kube-controller-manager state=restarted
-
-   - name: Restart 
-     service: name=kube-scheduler state=restarted
-
-   - name: Restart
-     service: name=cockpit state=restarted
 
