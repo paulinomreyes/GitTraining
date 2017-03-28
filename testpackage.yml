@@ -1,0 +1,9 @@
+---
+- hosts: web
+  tasks:
+   - name: Install required package
+     yum: package={{ item }} state=installed update_cache=true
+     with_items:
+       - git
+       - wget
+
