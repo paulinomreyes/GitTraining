@@ -1,0 +1,13 @@
+---
+- hosts: web
+  tasks:
+    
+
+    - name: Average Memory
+      command: dmidecode 
+      register: memory
+
+    - debug: msg=" Average Memory Utilization is {{memory.stdout}}"
+
+    - local_action: copy content="{{ memory.stdout }}" dest="/root/results/memory.csv"
+
