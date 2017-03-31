@@ -2,8 +2,11 @@
 - hosts: web
   tasks:
    - name: Install required package
-     yum: package={{ item }} state=installed update_cache=true
+     action: >
+        {{ ansible_pkg_mgr }} name={{ item }} state=installed 
      with_items:
        - git
        - wget
 
+   - name: Deploy Sample Repo
+     template: src=template/galera.repo.j2 dest=/etc/yum.repos.d/galera.repo
